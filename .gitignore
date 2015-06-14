@@ -1,5 +1,6 @@
 .idea
 .vagrant
 composer.phar
+bootstrap
 vendor
 *.pyc
