@@ -12,6 +12,15 @@ sudo aptitude update -q
 
 sudo apt-get install -y php5-cli
 
+# blackfire.io
+# http://habrahabr.ru/post/242167/
+wget -O - https://packagecloud.io/gpg.key | sudo apt-key add -
+echo "deb http://packages.blackfire.io/debian any main" | sudo tee /etc/apt/sources.list.d/blackfire.list
+sudo apt-get update
+sudo apt-get install -y blackfire-php blackfire-agent
+
+# blackfire-agent -register
+
 # Stress Testing
 sudo apt-get install -q -y -f python-pip
 sudo apt-get install -y python-dev
