@@ -1,0 +1,5 @@
+{
+  "require-dev": {
+    "symfony/http-foundation": "2.7.*"
+  }
+}
