@@ -10,3 +10,7 @@ require 'index.html';
  *  For Locust
  * sudo php -S 0.0.0.0:80
  */
+
+/**
+ * wget http://code.jquery.com/jquery-2.1.4.js
+ */
