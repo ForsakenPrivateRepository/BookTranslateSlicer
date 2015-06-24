@@ -16,6 +16,10 @@ $routes = new RouteCollection();
 $routes->add('index', new Route('/', [
     '_controller' => 'ReenExe\\BookSite\\MainController::indexAction'
 ]));
+$routes->add('form', new Route('/form', [
+    '_controller' => 'ReenExe\\BookSite\\MainController::formAction'
+]));
+
 
 $request = Request::createFromGlobals();
 

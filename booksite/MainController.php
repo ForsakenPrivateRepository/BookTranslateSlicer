@@ -11,4 +11,9 @@ class MainController
     {
         return new Response('index');
     }
+
+    public function formAction(Request $request)
+    {
+        return new Response('form');
+    }
 }
