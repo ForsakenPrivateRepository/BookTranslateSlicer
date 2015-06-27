@@ -6,6 +6,7 @@ use AppBundle\Document\Book;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Doctrine\ODM\MongoDB\DocumentManager;
+use Doctrine\ODM\MongoDB\LoggableCursor;
 
 class DefaultController extends Controller
 {
@@ -22,6 +23,11 @@ class DefaultController extends Controller
 
         $dm->persist($book);
         $dm->flush();
+
+        $repository = $dm->getRepository('AppBundle:Book');
+
+        /* @var $books LoggableCursor */
+        $books = $repository->findAll();
 
         return $this->render('default/index.html.twig');
     }
