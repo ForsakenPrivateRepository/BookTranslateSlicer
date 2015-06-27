@@ -1,6 +1,13 @@
 .idea
 .vagrant
 composer.phar
+symfony.phar
 bootstrap
 vendor
+app/bootstrap.php.cache
+app/cache/*
+app/config/parameters.yml
+app/logs/*
+bin/
+web/bundles/
 *.pyc

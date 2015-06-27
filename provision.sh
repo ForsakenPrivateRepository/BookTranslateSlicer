@@ -25,3 +25,6 @@ sudo apt-get install -y blackfire-php blackfire-agent
 sudo apt-get install -q -y -f python-pip
 sudo apt-get install -y python-dev
 sudo pip install locustio
+
+# php -r "readfile('http://symfony.com/installer');" > symfony.phar
+# php symfony.phar self-update
