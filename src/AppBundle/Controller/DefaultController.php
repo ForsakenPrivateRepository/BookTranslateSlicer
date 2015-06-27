@@ -11,9 +11,23 @@ use Doctrine\ODM\MongoDB\LoggableCursor;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/", name="index")
      */
     public function indexAction()
+    {
+        /* @var $dm DocumentManager */
+        $dm = $this->get('doctrine_mongodb')->getManager();
+
+        // db.Book.count();
+        $count = $dm->getConnection()->selectDatabase('test')->selectCollection('Book')->count();
+
+        return $this->render('default/index.html.twig', ['count' => $count]);
+    }
+
+    /**
+     * @Route("/add", name="add")
+     */
+    public function addAction()
     {
         /* @var $dm DocumentManager */
         $dm = $this->get('doctrine_mongodb')->getManager();
@@ -24,11 +38,36 @@ class DefaultController extends Controller
         $dm->persist($book);
         $dm->flush();
 
+        // db.Book.count();
+        $count = $dm->getConnection()->selectDatabase('test')->selectCollection('Book')->count();
+
+        return $this->render('default/index.html.twig', ['count' => $count]);
+    }
+
+    /**
+     * @Route("/form", name="form")
+     */
+    public function formAction()
+    {
+        return $this->redirect('/');
+    }
+
+    /**
+     * @Route("/all", name="all")
+     */
+    public function allAction()
+    {
+        /* @var $dm DocumentManager */
+        $dm = $this->get('doctrine_mongodb')->getManager();
+
         $repository = $dm->getRepository('AppBundle:Book');
 
         /* @var $books LoggableCursor */
         $books = $repository->findAll();
 
-        return $this->render('default/index.html.twig');
+        // db.Book.find();
+        $count = $books->count();
+
+        return $this->render('default/index.html.twig', ['count' => $count]);
     }
 }
