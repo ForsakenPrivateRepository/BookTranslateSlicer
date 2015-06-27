@@ -6,6 +6,10 @@ class Behavior(TaskSet):
     def index(self):
         self.client.get("/")
 
+    @task
+    def form(self):
+        self.client.get("/form")
+
 class LocustStressTesting(HttpLocust):
     task_set = Behavior
     min_wait = 1000
