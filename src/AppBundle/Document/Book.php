@@ -51,3 +51,6 @@ class Book
         return $this->name;
     }
 }
+/**
+ * php app/console doctrine:mongodb:generate:documents AppBundle
+ */
