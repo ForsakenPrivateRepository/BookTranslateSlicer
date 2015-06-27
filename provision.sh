@@ -28,3 +28,8 @@ sudo pip install locustio
 
 # php -r "readfile('http://symfony.com/installer');" > symfony.phar
 # php symfony.phar self-update
+
+sudo apt-get install -y php-pear php5-dev
+sudo apt-get install libsasl2-dev
+sudo pecl install mongo
+# You should add "extension=mongo.so" to php.ini
