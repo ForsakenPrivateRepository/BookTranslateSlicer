@@ -3,34 +3,10 @@
 require 'vendor/autoload.php';
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\HttpKernel;
-use Symfony\Component\EventDispatcher\EventDispatcher;
-use Symfony\Component\HttpKernel\Controller\ControllerResolver;
-use Symfony\Component\HttpKernel\EventListener\RouterListener;
-use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Routing\Matcher\UrlMatcher;
-use Symfony\Component\Routing\RequestContext;
-
-$routes = new RouteCollection();
-$routes->add('index', new Route('/', [
-    '_controller' => 'ReenExe\\BookSite\\MainController::indexAction'
-]));
-$routes->add('form', new Route('/form', [
-    '_controller' => 'ReenExe\\BookSite\\MainController::formAction'
-]));
-
+use ReenExe\BookSite\AppHandle;
 
 $request = Request::createFromGlobals();
-
-$matcher = new UrlMatcher($routes, new RequestContext());
-
-$dispatcher = new EventDispatcher();
-$dispatcher->addSubscriber(new RouterListener($matcher));
-
-$resolver = new ControllerResolver();
-$kernel = new HttpKernel($dispatcher, $resolver);
-
+$kernel = new AppHandle();
 $response = $kernel->handle($request);
 $response->send();
 
