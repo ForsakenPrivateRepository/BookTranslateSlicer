@@ -12,6 +12,7 @@ class BookType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('value', 'file')
             ->add('save', 'submit');
     }
 

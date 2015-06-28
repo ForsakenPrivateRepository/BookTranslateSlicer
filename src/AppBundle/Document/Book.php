@@ -20,6 +20,11 @@ class Book
     protected $name;
 
     /**
+     * @MongoDB\String
+     */
+    protected $value;
+
+    /**
      * Get id
      *
      * @return id $id
@@ -50,7 +55,26 @@ class Book
     {
         return $this->name;
     }
+
+    /**
+     * Set value
+     *
+     * @param string $value
+     * @return self
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+        return $this;
+    }
+
+    /**
+     * Get value
+     *
+     * @return string $value
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
 }
-/**
- * php app/console doctrine:mongodb:generate:documents AppBundle
- */
